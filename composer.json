@@ -1,0 +1,86 @@
+{
+    "type": "project",
+    "license": "proprietary",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://repo-manager.qubit.tv/"
+        }
+    ],
+    "require": {
+        "php": "^7.1.3",
+        "ext-iconv": "*",
+        "cravler/maxmind-geoip-bundle": "dev-master",
+        "firebase/php-jwt": "^5.0",
+        "friendsofsymfony/rest-bundle": "^2.3",
+        "geoip2/geoip2": "~2.0",
+        "jms/serializer-bundle": "^2.3",
+        "nelmio/api-doc-bundle": "dev-master",
+        "qubit/log-bundle": "dev-mvp as 2.9.10",
+        "qubit/rabbit-bundle": "^2.0",
+        "qubit/utils-bundle": "dev-mvp as 1.9.10",
+        "sensio/framework-extra-bundle": "^5.1",
+        "stof/doctrine-extensions-bundle": "dev-master",
+        "symfony/asset": "^4.0",
+        "symfony/browser-kit": "^4.0",
+        "symfony/console": "^4.0",
+        "symfony/debug-pack": "^1.0",
+        "symfony/flex": "^1.0",
+        "symfony/framework-bundle": "^4.0",
+        "symfony/lts": "^4@dev",
+        "symfony/maker-bundle": "^1.0",
+        "symfony/orm-pack": "^1.0",
+        "symfony/phpunit-bridge": "^4.0",
+        "symfony/profiler-pack": "^1.0",
+        "symfony/validator": "^4.0",
+        "symfony/yaml": "^4.0"
+    },
+    "require-dev": {
+        "symfony/dotenv": "^4.0",
+        "symfony/thanks": "^1.0",
+        "doctrine/doctrine-fixtures-bundle": "^3.0"
+    },
+    "config": {
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "tests/"
+        }
+    },
+    "replace": {
+        "symfony/polyfill-iconv": "*",
+        "symfony/polyfill-php71": "*",
+        "symfony/polyfill-php70": "*",
+        "symfony/polyfill-php56": "*"
+    },
+    "scripts": {
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd",
+            "assets:install --symlink --relative %PUBLIC_DIR%": "symfony-cmd"
+        },
+        "post-install-cmd": [
+            "@auto-scripts"
+        ],
+        "post-update-cmd": [
+            "@auto-scripts"
+        ]
+    },
+    "conflict": {
+        "symfony/symfony": "*"
+    },
+    "extra": {
+        "symfony": {
+            "id": "01C2JTHZ1FK7BC2HQBCJ1GT338",
+            "allow-contrib": false
+        }
+    }
+}

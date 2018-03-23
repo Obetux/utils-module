@@ -1,0 +1,24 @@
+monolog:
+    use_microseconds: false
+#    channels: ['user', 'auth']
+    channels: ['geo_ip','blacklist','whitelist']
+    handlers:
+        # this "file_log" key could be anything
+        geo_ip_log:
+            type:  rotating_file
+            # log to var/logs/(environment).log
+            path: "%kernel.logs_dir%/geo_ip_%kernel.environment%.log"
+            # log *all* messages (debug is lowest level)
+            level: info
+            formatter: qubit.line.formatter
+            max_files: 30
+            channels: [geo_ip, blacklist, whitelist]
+#        auth_log:
+#            type:  rotating_file
+#            # log to var/logs/(environment).log
+#            path: "%kernel.logs_dir%/auth_%kernel.environment%.log"
+#            # log *all* messages (debug is lowest level)
+#            level: info
+#            formatter: qubit.line.formatter
+#            max_files: 30
+#            channels: [auth]
